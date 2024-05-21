@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+    <h1>This is Registration Page</h1>
+    <form action="" method='POST' style="width: 50%; margin:auto;" novalidate>
+     {% csrf_token %}
+        {% load crispy_forms_tags %}
+     {% for fm in form %}
+     {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br> <br>
+      {% endfor %}
+    
+     <input type="submit" value="Submit">
+     <small>Already have an account?<a href="{% url 'loginpage' %}">Login</a></small>
+    </form>
+</body>
+</html>

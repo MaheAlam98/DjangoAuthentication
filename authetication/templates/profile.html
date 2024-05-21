@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+</head>
+<body>
+    {% if messages %}
+    {% for m in messages %}
+     <small {% if m.tags %} class="{{m.tags}}" {%endif%}>{{m}}</small>
+    {% endfor %}
+   {% endif %}
+      <h1>this is profile page</h1>
+      <h1>Welcome {{user}}</h1>
+      <a href="{% url 'logout' %}"><input type="submit" value="Logout"></a>
+      <a href="{% url 'user_change_password' %}"><input type="submit" value="ChangePassword"></a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    {% if messages %}
+     {% for m in messages %}
+      <small {% if m.tags %} class="{{m.tags}}" {%endif%}>{{m}}</small>
+     {% endfor %}
+    {% endif %}
+    <h1>this is login page</h1>
+    <form action="" method='POST' style="width: 50%; margin:auto;" novalidate>
+       {% csrf_token %}
+        {% load crispy_forms_tags %}
+        {% for lf in loginfrom %}
+        {{lf.label_tag}} {{lf}} {{lf.errors|striptags}} <br> <br>
+         {% endfor %}
+       
+        <input type="submit" value="Login">
+        <small>Don't have an account? <a href="{% url 'registrationpage'%}">Signup</a> </small>
+       </form>
+</body>
+</html>
